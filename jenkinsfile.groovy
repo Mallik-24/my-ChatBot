@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git branch: 'main', url: 'https://github.com/VattamBhavaniPrasad5i5/my-ChatBot.git'
+                git branch: 'main', url: 'https://github.com/Mallik-24/my-ChatBot.git'
                 sh 'pip install rasa'
                 sh 'rasa train'
                 sh 'rasa test'
@@ -14,8 +14,8 @@ pipeline {
         stage('Dockerize') {
             steps {
                 sh 'docker build -t my-chatbot .'
-                sh 'docker tag my-chatbot my-docker-repo/my-chatbot:latest'
-                sh 'docker push my-docker-repo/my-chatbot:latest'
+                sh 'docker tag my-chatbot mallik2001/my-chatbot:latest'
+                sh 'docker push mallik2001/my-chatbot:latest'
             }
         }
 
@@ -30,4 +30,3 @@ pipeline {
         }
     }
 }
-
